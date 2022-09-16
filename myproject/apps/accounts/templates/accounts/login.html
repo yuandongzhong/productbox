@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}登陆 - 小火炉{% endblock %}
+
+{% block content %}
+  <div class="my-5 row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"></h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% include 'accounts/includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">登陆</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

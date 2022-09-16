@@ -1,0 +1,12 @@
+<div class="card-header bg-white">
+  <ul class="nav nav-tabs card-header-tabs">
+    <li class="nav-item">
+      <a class="nav-link {% if active == 'category_products' %} active{% endif %}"
+        href="{% url 'products:category_products' category.pk %}">Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {% if active == 'category_photos' %} active{% endif %}"
+        href="{% url 'products:category_photos' category.pk %}">Images</a>
+    </li>
+  </ul>
+</div>

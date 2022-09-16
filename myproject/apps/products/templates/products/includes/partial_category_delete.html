@@ -1,0 +1,18 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'products:category_delete' category.id %}" class="js-category-delete-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm</h4>
+    <button type="button" class="close" data-dismiss="modal" arial-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Confirm to delete【{{ category.title }}】？</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </div>
+</form>

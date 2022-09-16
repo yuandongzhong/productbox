@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load my_template_tags %}
+
+{% block js %}
+<script src="{% static 'products/js/products.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ category.title }}</li>
+  </ol>
+</nav>
+
+<div class="card">
+  {% include 'products/_header.html' with active='category_products' %}
+
+  <div class="card-body">
+    <div class="my-2">
+      <button type="button" class="js-create-product btn btn-outline-dark mr-2"
+        data-url="{% url 'products:product_create' category.id%}">
+        Add Model
+      </button>
+      {% comment %} <button type="button" class="btn btn-outline-dark btn-sm mr-2">导出</button>
+      <button type="button" class="btn btn-outline-dark btn-sm">导入</button> {% endcomment %}
+    </div>
+    <br>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Model</th>
+          <th scope="col">Title</th>
+          <th scope="col">Color</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody id="product-list">
+        {% include 'products/includes/partial_product_list.html' %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-product">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+{% endblock %}

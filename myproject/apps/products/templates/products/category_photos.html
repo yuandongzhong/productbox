@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load my_template_tags %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ category.title }}</li>
+  </ol>
+</nav>
+<div class="card">
+  {% include 'products/_header.html' with active='category_photos' %}
+  <div class="card-body">
+    {% comment %} <div class="my-4">
+      <button type="button" class="js-create-album btn btn-outline-dark btn-sm">Add Album</button>
+    </div> {% endcomment %}
+    <div class="row mt-3">
+      {% for product in products %}
+      <div class="col-sm-4 col-md-3 my-2 d-flex justify-content-center">
+        <a href="{% url 'products:product_photos' category.pk product.pk %}">
+          <img class="rounded img-thumbnail" border="0" alt="{{ product.model_number }}"
+            src="{% get_cover_photo_url product product.model_number %}" width="140" height="140">
+          <p class="d-flex justify-content-center mt-3">{{ product.model_number }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

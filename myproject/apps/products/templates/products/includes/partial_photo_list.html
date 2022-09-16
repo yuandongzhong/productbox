@@ -1,0 +1,11 @@
+{% for photo in photos %}
+  <div class="col-sm-4 col-md-3 my-2 text-center">
+    <label class="image-checkbox">
+      <img class="rounded img-thumbnail img-responsive" alt="product-photo" src="{{ photo.image_file.url }}" width="120" height="120">
+      <input type="checkbox" name="image[]" value="{{ photo.id }}" disabled/>
+      <i class="fa fa-check" style="display: None;"></i>
+    </label>
+  </div>  
+{% empty %}
+  {% comment %} <h3 class="col text-center my-4">没有图片</h3> {% endcomment %}
+{% endfor %}

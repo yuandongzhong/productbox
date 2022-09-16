@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block js %}
+  <script src="{% static 'products/js/categories.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="row text-center">
+  <div class="col">
+    <h5 class="decorated"><span>Product</span></h5>
+    <button type="button" 
+            class="btn btn-outline-dark btn-sm float-left js-create-category"
+            data-url="{% url 'products:category_create'%}">
+      Add
+    </button>
+  </div>
+</div>
+<div class="row my-3" id="category-list">
+  {% include 'products/includes/partial_category_list.html' %}
+</div>
+
+<div class="modal fade" id="modal-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

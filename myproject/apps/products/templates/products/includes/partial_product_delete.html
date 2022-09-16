@@ -1,0 +1,18 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'products:product_delete' category.id product.id %}" class="js-product-delete-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <h4 class="modal-title">删除确定</h4>
+    <button type="button" class="close" data-dismiss="modal" arial-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>确定删除型号{{ product.model_number }}？</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+    <button type="submit" class="btn btn-danger">删除</button>
+  </div>
+</form>

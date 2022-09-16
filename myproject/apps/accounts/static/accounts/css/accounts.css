@@ -1,0 +1,21 @@
+html,
+body {
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+body {
+  background-image: url(../img/light-grey-terrazzo.png);
+}
+
+/* .logo {
+  font-family: 'Peralta', cursive;
+} */
+
+.logo a {
+  color: rgba(0, 0, 0, .9);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
